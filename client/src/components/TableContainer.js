@@ -110,6 +110,7 @@ const TableContainer = () => {
               <th scope="col">Email</th>
               <th scope="col">Update</th>
               <th scope="col">Delete</th>
+              <th scope="col">Send</th>
             </tr>
           </thead>
           <tbody>
@@ -136,6 +137,9 @@ const TableContainer = () => {
                   >
                     Delete
                   </button>
+                </td>
+                <td>
+                  <button>Send</button>
                 </td>
               </tr>
             ))}
