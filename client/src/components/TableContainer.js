@@ -154,6 +154,7 @@ const TableContainer = () => {
               className="form-control"
               value={name}
               id="exampleInputEmail1"
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -166,6 +167,7 @@ const TableContainer = () => {
               type="email"
               className="form-control"
               id="exampleInputEmail1"
+              required
               aria-describedby="emailHelp"
               value={email}
               onChange={(e) => {
@@ -182,6 +184,7 @@ const TableContainer = () => {
               type="numbar"
               className="form-control"
               id="exampleInputEmail1"
+              required
               value={phone}
               onChange={(e) => {
                 setPhone(e.target.value);
@@ -197,6 +200,7 @@ const TableContainer = () => {
               type="text"
               className="form-control"
               value={hobbies}
+              required
               onChange={(e) => setHobbies(e.target.value)}
               id="exampleInputPassword1"
             />
