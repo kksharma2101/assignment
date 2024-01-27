@@ -1,6 +1,7 @@
 .formContainer {
   background-color: #80ddf1;
   padding: 20px;
+  margin-bottom: 10px;
   border-radius: 10px;
 }
 .form-label {

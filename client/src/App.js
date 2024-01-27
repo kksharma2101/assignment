@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <FormContainer />
-      <TableContainer />
+      <TableContainer className="col-md-8 p-2" />
       <Toaster />
     </div>
   );

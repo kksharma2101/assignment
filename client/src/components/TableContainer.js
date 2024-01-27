@@ -38,7 +38,7 @@ const TableContainer = () => {
   //       setHobbies(data.data.hobbies);
   //     }
   //   } catch (error) {
-  //     // console.log(error);
+  //     console.log(error.message);
   //   }
   // };
   // useEffect(() => {
@@ -98,7 +98,7 @@ const TableContainer = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <div className={active ? "tableContainer" : ""}>
         <table class="table table-bordered">
           <thead>

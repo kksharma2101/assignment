@@ -39,7 +39,8 @@ export const saveData = async (req, res) => {
 // get single data
 export const getSingleData = async (req, res) => {
   try {
-    const data = await user.findOne(req.body.id);
+    const data = await user.findById(req.params.id);
+
     res.status(200).json({
       success: true,
       message: "single data is get successfully",
