@@ -139,7 +139,7 @@ const TableContainer = () => {
                   </button>
                 </td>
                 <td>
-                  <button>Send</button>
+                  <button className="bg bg-success">Send</button>
                 </td>
               </tr>
             ))}
