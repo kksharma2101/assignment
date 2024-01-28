@@ -98,8 +98,7 @@ const TableContainer = () => {
   };
 
   // send data by email
-  const handelSendEmail = async (e) => {
-    e.preventDefault();
+  const handelSendEmail = async (iName, iPhone, iHobbies, iEmail) => {
     try {
       const serviceId = process.env.REACT_APP_SERVICE_ID;
       const templateId = process.env.REACT_APP_TEMPLATE_ID;
@@ -107,17 +106,17 @@ const TableContainer = () => {
       let templateParams = {
         from_name: "kamal sharma",
         to_name: "info@redpositive.in",
-        message: {
-          name,
-          email,
-          phone,
-          hobbies,
-        },
+        message: [
+          `Name: ${iName} `,
+          `Phone: ${iPhone} `,
+          `Hobbies: ${iHobbies} `,
+          `Email: ${iEmail} `,
+        ],
       };
 
       emailjs.send(serviceId, templateId, templateParams, publickKey).then(
         function (response) {
-          console.log("SUCCESS!", response.status, response.text);
+          // console.log("SUCCESS!", response.status, response.text);
           toast.success("Data send successfully on email");
         },
         function (error) {
@@ -125,7 +124,7 @@ const TableContainer = () => {
         }
       );
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -173,7 +172,14 @@ const TableContainer = () => {
                 <td>
                   <button
                     style={{ backgroundColor: "green" }}
-                    onClick={handelSendEmail}
+                    onClick={() =>
+                      handelSendEmail(
+                        item.name,
+                        item.phone,
+                        item.hobbies,
+                        item.email
+                      )
+                    }
                   >
                     Send
                   </button>
