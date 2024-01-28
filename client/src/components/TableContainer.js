@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style/Table.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-// import { useParams } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const TableContainer = () => {
   // const params = useParams();
@@ -97,6 +97,38 @@ const TableContainer = () => {
     }
   };
 
+  // send data by email
+  const handelSendEmail = async (e) => {
+    e.preventDefault();
+    try {
+      const serviceId = process.env.REACT_APP_SERVICE_ID;
+      const templateId = process.env.REACT_APP_TEMPLATE_ID;
+      const publickKey = process.env.REACT_APP_PUBLIC_KEY;
+      let templateParams = {
+        from_name: "kamal sharma",
+        to_name: "info@redpositive.in",
+        message: {
+          name,
+          email,
+          phone,
+          hobbies,
+        },
+      };
+
+      emailjs.send(serviceId, templateId, templateParams, publickKey).then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          toast.success("Data send successfully on email");
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="main">
       <div className={active ? "tableContainer" : ""}>
@@ -139,7 +171,12 @@ const TableContainer = () => {
                   </button>
                 </td>
                 <td>
-                  <button className="bg bg-success">Send</button>
+                  <button
+                    style={{ backgroundColor: "green" }}
+                    onClick={handelSendEmail}
+                  >
+                    Send
+                  </button>
                 </td>
               </tr>
             ))}
