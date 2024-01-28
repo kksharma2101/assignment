@@ -114,7 +114,7 @@ const TableContainer = () => {
         ],
       };
 
-      emailjs.send(serviceId, templateId, templateParams, publickKey).then(
+      emailjs.send(serviceId, templateId, publickKey, templateParams).then(
         function (response) {
           // console.log("SUCCESS!", response.status, response.text);
           toast.success("Data send successfully on email");
