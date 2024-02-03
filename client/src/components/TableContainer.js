@@ -102,7 +102,7 @@ const TableContainer = () => {
     try {
       const serviceId = process.env.REACT_APP_SERVICE_ID;
       const templateId = process.env.REACT_APP_TEMPLATE_ID;
-      const publickKey = process.env.REACT_APP_PUBLIC_KEY;
+      let publickKey = process.env.REACT_APP_PUBLIC_KEY;
       let templateParams = {
         from_name: "kamal sharma",
         to_name: "info@redpositive.in",
@@ -114,7 +114,7 @@ const TableContainer = () => {
         ],
       };
 
-      emailjs.send(serviceId, templateId, publickKey, templateParams).then(
+      emailjs.send(serviceId, templateId, templateParams, publickKey).then(
         function (response) {
           // console.log("SUCCESS!", response.status, response.text);
           toast.success("Data send successfully on email");
